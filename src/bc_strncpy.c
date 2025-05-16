@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bc_strchr_fo_rv.c                                  :+:      :+:    :+:   */
+/*   bc_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenzaho <abenzaho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:50:58 by abenzaho          #+#    #+#             */
-/*   Updated: 2025/05/16 10:51:00 by abenzaho         ###   ########.fr       */
+/*   Created: 2025/05/16 11:08:37 by abenzaho          #+#    #+#             */
+/*   Updated: 2025/05/16 11:09:33 by abenzaho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bc_library.h"
 
-char	*bc_strchr_fo_rv(const char *s, char c)
+void	bc_strncpy(char *dest, char *src, unsigned int n)
 {
-	int		i;
-	char	*str;
+	unsigned int	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
+	while (src[i] && i < n)
 	{
-		str[i] = s[i];
-		i++;
+		dest[i] = src[i];
+		++i;
 	}
-	str[i] = '\0';
-	return (str);
+	dest[i] = '\0';
 }

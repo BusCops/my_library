@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bc_strchr_fo_rv.c                                  :+:      :+:    :+:   */
+/*   bc_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenzaho <abenzaho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:50:58 by abenzaho          #+#    #+#             */
-/*   Updated: 2025/05/16 10:51:00 by abenzaho         ###   ########.fr       */
+/*   Created: 2025/05/16 10:39:26 by abenzaho          #+#    #+#             */
+/*   Updated: 2025/05/16 10:57:32 by abenzaho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bc_library.h"
 
-char	*bc_strchr_fo_rv(const char *s, char c)
+char	*bc_strdup(const char *s1)
 {
-	int		i;
 	char	*str;
+	int		i;
 
-	if (!s)
+	if (!s1)
 		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = (char *)malloc(bc_strlen(s1) + 1);
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
+	while (s1[i])
 	{
-		str[i] = s[i];
+		str[i] = s1[i];
 		i++;
 	}
 	str[i] = '\0';

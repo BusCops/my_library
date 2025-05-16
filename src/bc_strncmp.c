@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bc_strchr_fo_rv.c                                  :+:      :+:    :+:   */
+/*   bc_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenzaho <abenzaho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:50:58 by abenzaho          #+#    #+#             */
-/*   Updated: 2025/05/16 10:51:00 by abenzaho         ###   ########.fr       */
+/*   Created: 2025/05/16 10:50:37 by abenzaho          #+#    #+#             */
+/*   Updated: 2025/05/16 10:56:59 by abenzaho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bc_library.h"
 
-char	*bc_strchr_fo_rv(const char *s, char c)
+int	bc_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		i;
-	char	*str;
+	size_t	i;
 
-	if (!s)
-		return (NULL);
+	if (!s1 || !s2)
+		return (1);
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
+	while (i < n)
 	{
-		str[i] = s[i];
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0' || s2[i] == '\0')
+			break ;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (0);
 }

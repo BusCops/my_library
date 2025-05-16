@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bc_strchr_fo_rv.c                                  :+:      :+:    :+:   */
+/*   bc_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenzaho <abenzaho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:50:58 by abenzaho          #+#    #+#             */
-/*   Updated: 2025/05/16 10:51:00 by abenzaho         ###   ########.fr       */
+/*   Created: 2025/05/16 10:48:28 by abenzaho          #+#    #+#             */
+/*   Updated: 2025/05/16 10:54:31 by abenzaho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bc_library.h"
 
-char	*bc_strchr_fo_rv(const char *s, char c)
+int	bc_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-	char	*str;
+	int	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
