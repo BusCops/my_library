@@ -1,7 +1,8 @@
 #ifndef BC_LIBRARY_H
 #define BC_LIBRARY_H
 
-#include <stdlib.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 // Returns the length of the given string
 size_t	bc_strlen(const char *string);
